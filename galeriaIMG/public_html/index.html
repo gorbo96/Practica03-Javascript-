@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="ES">
+    <head>
+        <title>Galeria de imagenes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css1.css" type="text/css" rel="stylesheet">
+        <script src="js1.js" type="text/javascript"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    </head>
+    <body onload="aleatorio()">
+        <div class="contenedor">  
+            <div class="imagen">        
+                <img src="imagenes/ash.png" style="width: 600px" alt="ash">
+            </div>
+            <div class="imagen">    
+                <img src="imagenes/atlas.png" style="width: 600px" alt="atlas">
+            </div>
+            <div class="imagen">    
+                <img src="imagenes/banshee.png" style="width: 600px" alt="banshee">
+            </div>
+            <div class="imagen">        
+                <img src="imagenes/chroma.png" style="width: 600px" alt="chroma">
+            </div>
+            <div class="imagen">
+                <img src="imagenes/ember.png" style="width: 600px" alt="ember">
+            </div>
+            <div class="imagen">    
+                <img src="imagenes/equinox.png" style="width: 600px" alt="equinox">
+            </div>
+            <div class="imagen">    
+                <img src="imagenes/excalibur.png" style="width: 600px" alt="excalibur">
+            </div>
+            <div class="imagen">    
+                <img src="imagenes/frost.png" style="width: 600px" alt="frost">
+            </div>
+            <div class="imagen">    
+                <img src="imagenes/hydroid.png" style="width: 600px" alt="hydroid">
+            </div>
+            <div class="imagen">    
+                <img src="imagenes/mesa.png" style="width: 600px" alt="mesa">
+            </div>
+            <a class="anterior" onclick="mostrarImg(false)">&#10094;</a>
+            <a class="siguiente" onclick="mostrarImg(true)">&#10095;</a>
+            <button class="reinicio" onclick="aleatorio()">Loot</button>
+        </div>
+        <script>
+            var Indiceimagen = 2;
+            var margenD = document.body.clientWidth;
+            var margenI = -600;
+            var slides = document.getElementsByClassName("imagen");
+            var ancho = document.body.clientWidth;
+            var inicio = ((ancho-600)/2);
+            var seleccion = [0,0,0,0,0];            
+            function cambioImg(v) {                
+                if (v) {                    
+                    if (Indiceimagen >= (seleccion.length-1)) {                        
+                        Indiceimagen = (seleccion.length-1);
+                    }else {                        
+                        Indiceimagen++;
+                    }
+                }else {                    
+                    if (Indiceimagen <= 0) {
+                        Indiceimagen = 0;
+                    }
+                    else {
+                        Indiceimagen--;
+                    }                    
+                }
+            }
+            function mostrarImg(x) {
+                var acum = inicio;
+                if ((Indiceimagen==0 & !x)|(Indiceimagen==(seleccion.length-1) & x)) {
+                    alert("Final de galeria");
+                }else {
+                        var anim = setInterval(() => {
+                        slides[seleccion[Indiceimagen]].style.left=acum+"px";
+                        if(x) {
+                            acum-=20;
+                        }else {
+                            acum+=20;
+                        }
+                        if(acum>=margenD | acum<=margenI) {
+                            slides[seleccion[Indiceimagen]].style.display="none";
+                            clearInterval(anim);
+                            cambioImg(x);
+                            carga();
+                        }
+                        },60);
+                    }                
+            }            
+            function carga() {
+                var i;
+                 for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display="none";
+                }
+                slides[seleccion[Indiceimagen]].style.display="block";
+                slides[seleccion[Indiceimagen]].style.left=inicio+"px";                
+            }
+            function aleatorio() {
+                Indiceimagen=2;
+                var bandera = false;
+                var aux =0;
+                for(var a=0;a<5;a++) {
+                    bandera=false;                    
+                    if(a>0) {                        
+                        while (!bandera) {                            
+                            bandera=true;
+                            aux=Math.floor((Math.random()*10));                            
+                            for(var b=(a-1);b>=0;b--) {                                
+                                if(aux===seleccion[b]) {
+                                    bandera=false;
+                                }
+                            }
+                        }
+                        seleccion[a]=aux;                        
+                    }else {
+                        seleccion[0]=(Math.floor((Math.random() * 10) + 1));                        
+                    }                    
+                }
+                carga();
+            }            
+   </script>
+    </body>
+</html>

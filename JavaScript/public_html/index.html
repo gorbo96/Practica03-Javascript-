@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calculadora JS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">                   
+        <script src="jsp1.js" type="text/javascript"></script>
+        <link href="css1.css" type="text/css" rel="stylesheet"/>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+        </style>
+    </head>
+    <body>
+        <div id="rslt">
+            <textarea id="ing" rows="4" cols="79" disabled>0</textarea>
+            <textarea id="sld" rows="4" cols="79" disabled>0</textarea>
+        </div>        
+        <div id="btns">
+            <button class="boton" onclick="limpiar()">C</button>
+            <button class="boton" onclick="ingreso('+')">+</button>
+            <button class="boton" onclick="ingreso('-')">-</button>
+            <button class="boton" onclick="ingreso('*')">*</button>
+            <button class="boton" onclick="ingreso('/')">/</button>            
+            <button class="boton" onclick="ingreso('0')">0</button>
+            <button class="boton" onclick="ingreso('1')">1</button>
+            <button class="boton" onclick="ingreso('2')">2</button>
+            <button class="boton" onclick="ingreso('3')">3</button>
+            <button class="boton" onclick="ingreso('4')">4</button>
+            <button class="boton" onclick="ingreso('5')">5</button>
+            <button class="boton" onclick="ingreso('6')">6</button>
+            <button class="boton" onclick="ingreso('7')">7</button>
+            <button class="boton" onclick="ingreso('8')">8</button>
+            <button class="boton" onclick="ingreso('9')">9</button>
+            <button class="boton" onclick="calcular()">=</button>
+        </div>        
+    </body>
+</html>

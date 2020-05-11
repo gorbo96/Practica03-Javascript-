@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="ES">
+    <head>
+        <title>Fomulario JS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css1.css" type="text/css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="jspt1.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Formulario</h1>
+        </header>
+        <section>
+            <header>
+                <h2>Fomulario implementado con auto-validacion</h2>
+            </header>
+            <form id="formulario01" method="POST" action="" onsubmit="return validarCamposObligatorios()">
+                    <label for="Cedula">CI:</label>
+                    <input type="text" name="Cedula" id="Cedula" onkeyup="return validarCedula(this)"  class="entrada" onfocus="vaciar(this)"/>
+                    <label for="Nombres">Nombres:</label>
+                    <input type="text" name="Nombres" id="Nombres" onkeyup="return validarNombres(this)" class="entrada" onfocus="vaciar(this)"/>
+                    <label for="Apellidos">Apellidos:</label>
+                    <input type="text" name="Apellidos" id="Apellidos" onkeyup="return validarApellidos(this)" class="entrada" onfocus="vaciar(this)"/>
+                    <label for="Direccion">Direccion:</label>
+                    <input type="text" name="Direccion" id="Direccion" onkeyup="return validarDireccion(this)" class="entrada" onfocus="vaciar(this)"/>
+                    <label for="Telefono">Telefono:</label>
+                    <input type="text" name="Telefono" id="Telefono" onkeyup="return validarTelefono(this)" class="entrada" onfocus="vaciar(this)"/>
+                    <label for="Fecha">Fecha de nacimiento:</label>
+                    <input type="text" name="Fecha" id="Fecha" onkeyup="return validarFecha(this)" class="entrada" onfocus="vaciar(this)"/>
+                    <label>Correo Electronico:</label>
+                    <input type="text" name="Correo" id="Correo" onkeyup="return validarCorreo(this)" class="entrada" onfocus="vaciar(this)"/>
+                    <label>Contraseña:</label>
+                    <input type="password" id="clave" name="Contraseña" value="" class="error" onkeyup="return validarClave(this)" onfocus="vaciar(this)"/>
+                    <button type="submit">Enviar</button>
+                    <button type="reset">Limpiar</button>
+            </form>
+        </section>
+    </body>
+</html>
